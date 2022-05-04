@@ -1,8 +1,8 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
+# from flask_bootstrap import Bootstrap
 from config import config_map
 
-bootstrap = Bootstrap()###activate the boostrap extensions
+# bootstrap = Bootstrap()###activate the boostrap extensions
 
 
 def create_app(config_name):
