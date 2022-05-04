@@ -1,3 +1,7 @@
+{% import 'macros.html' as macro%} {% extends "base.html" %} {% block content %}
+
+
+<!-- homepage -->
 <div class="homepage mt-4">
     <div class="m-2">
         <div class="row">
@@ -44,3 +48,30 @@
         </div>
     </div>
 </div>
+
+<!-- sources -->
+<div class="sources m-2">
+    <div class="card p-2">
+        <h3 class="text-uppercase headings">top news sources</h3>
+        <div class="row">
+            <div class="col-md-12">
+                {{ macro.displayNewsSources(sources) }}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Al Jazeera English News -->
+<div class="top-news m-2">
+    <h3 class="text-uppercase headings text-center mt-5 mb-4">top Al Jazeera English News</h3>
+    <div class="row">
+        {{ macro.displayNewsSourceArticles(aljazeera) }}
+    </div>
+</div>
+<!-- top  bbc news-->
+<div class="top-news m-2">
+    <h3 class="text-uppercase headings text-center mt-5 mb-4">top BBC News</h3>
+    <div class="row">
+        {{ macro.displayNewsSourceArticles(bbc_news) }}
+    </div>
+</div>
+{% endblock %}
