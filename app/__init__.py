@@ -10,9 +10,10 @@ def create_app(config_name):
 
 
     app.config.from_object(config_map[config_name])
-    config_map[config_name].init_app(app)
+    # config_map[config_name].init_app(app)
 
-    bootstrap.init_app(app)
+    
+    # bootstrap.init_app(app)
 
 
 
