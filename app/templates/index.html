@@ -1,7 +1,19 @@
  {% extends 'base.html' %} {% block content %} {% for headline in headlines %}
 
-<img src="{{headline.urlToImage}}" width="200">
-<p>{{headline.title}}</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+
+                <img src="{{headline.urlToImage}}" width="200">
+                <p>{{headline.title}}</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
