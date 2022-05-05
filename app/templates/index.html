@@ -1,20 +1,35 @@
- {% extends 'base.html' %} {% block content %} {% for headline in headlines %}
-
-
+ {% extends 'base.html' %} {% block styles %} {{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='index.css')}}"> {% endblock %} {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="card">
 
-                <img src="{{headline.urlToImage}}" width="200">
-                <p>{{headline.title}}</p>
-
-
-            </div>
-        </div>
     </div>
+</div>
+{% for headline in headlines %}
+
+
+
+<div class="col-md-4">
+    <div class="card">
+        <div class="card-body">
+
+            <img src="{{headline.urlToImage}}" width="300">
+            <h4 class="headline">{{headline.title}}</h4>
+            <p>{{headline.publishedAt}}</p>
+
+
+        </div>
+
+
+    </div>
+</div>
+</div>
 </div>
 
 
 
-{% endfor %} {% endblock %}
+{% endfor %}
+
+</div>
+</div>
+{% endblock %}

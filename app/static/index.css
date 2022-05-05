@@ -1,0 +1,16 @@
+.card {
+    width: 300px;
+    background-repeat: no-repeat;
+}
+
+.card-body {
+    height: 300px;
+}
+
+body {
+    background-color: black;
+}
+
+.headline {
+    color: white;
+}
