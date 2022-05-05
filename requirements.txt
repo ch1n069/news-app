@@ -4,7 +4,7 @@ backports.zoneinfo==0.2.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
 click==7.1.2
-Django==4.0.4
+Django==3.2.13
 django-cors-headers==3.11.0
 dominate==2.6.0
 Flask==1.1.4
