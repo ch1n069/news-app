@@ -17,7 +17,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==2.0.1
 newsapi-python==0.2.6
-pkg_resources==0.0.0
 requests==2.27.1
 sqlparse==0.4.2
 urllib3==1.26.9
