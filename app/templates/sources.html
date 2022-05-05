@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %} {% for source in sources %}
+
+
+<p>{{source.url}}</p>
+<p>{{source.name}}</p>
+<p>{{source.country}}</p>
+<p>{{source.category}}</p>
+<p>{{source.description}}</p>
+{% endfor %} {% endblock %}

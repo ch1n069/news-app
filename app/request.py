@@ -32,7 +32,7 @@ def get_sources():  # get all sources from the news api
     with urllib.request.urlopen(get_source_url) as home:
         get_source_data = home.read()
         get_source_response = json.loads(get_source_data)
-
+ 
         source_results = None
 
         if get_source_response['sources']:
@@ -64,15 +64,17 @@ def process_results_sources(source_list):
             source_object = Sources( id, name, description, url, category, language)
             source_result_list.append(source_object)
 
-        return source_result_list
+    return source_result_list
 
 
 
-def get_articles(source_id):
+
+
+def get_articles():
     '''
         Function that gets the json response to our url request using the source id
     '''
-    get_articles_url = NEWS_ARTICLES_URL.format(source_id,api_key)
+    get_articles_url = 'https://newsapi.org/v2/everything?q=us&from=2022-04-12&language=en&apiKey=cae08cf647104f67ba2f3b6a8c539dd9'
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
@@ -85,23 +87,62 @@ def get_articles(source_id):
     return articles_results
 
 
+
+def get_headlines():
+    '''
+        Function that gets the json response to our url request using the source id
+    '''
+    get_headlines_url = 'https://newsapi.org/v2/top-headlines?q=us&language=en&apiKey=cae08cf647104f67ba2f3b6a8c539dd9'
+    with urllib.request.urlopen(get_headlines_url) as url:
+        get_headlines_data = url.read()
+        get_headlines_response = json.loads(get_headlines_data)
+
+        headlines_results = None
+
+        if get_headlines_response['articles']:
+            headlines_results_list = get_headlines_response['articles']
+            headlines_results = process_results_headlines(headlines_results_list)
+    return headlines_results
+
+
+
+def process_results_headlines(headlines_list):
+    '''
+        Function that processes the articles list result and transform them to a list of Objects
+    '''
+    headlines_results = []
+    for headline_item in headlines_list:
+        author = headline_item.get('author')
+        title = headline_item.get('title')
+
+        description = headline_item.get('description')
+        url = headline_item.get('url')
+        urlToImage = headline_item.get('urlToImage')
+        publishedAt =headline_item.get('publishedAt')
+        content = headline_item.get('content')
+
+        
+        headline_object = Articles(author, title, description, url, urlToImage, publishedAt, content)
+        headlines_results.append(headline_object)
+
+    return headlines_results
+
 def process_results_articles(articles_list):
     '''
         Function that processes the articles list result and transform them to a list of Objects
     '''
     articles_results = []
     for article_item in articles_list:
-        author = article_item['author']
-        title = article_item['title']
+        author = article_item.get('author')
+        title = article_item.get('title')
 
-        description = article_item['description']
-        url = article_item['url']
-        urlToImage = article_item['urlToImage']
-        publishedAt = article_item['publishedAt']
-        content = article_item['content']
+        description = article_item.get('description')
+        url = article_item.get('url')
+        urlToImage = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
+        content = article_item.get('content')
 
-    if urlToImage:
-
+        
         articles_object = Articles(author, title, description, url, urlToImage, publishedAt, content)
         articles_results.append(articles_object)
 

@@ -1,6 +1,5 @@
-import re
 from flask import render_template
-from ..request import get_sources ,get_articles
+from ..request import get_sources ,get_articles,get_headlines
 # get_articles, get_articles_from_source_selected, get_articles_depending_on_category_of_the_source
 from . import main
 
@@ -10,18 +9,32 @@ from . import main
 def index():
 
 
-    sources = get_sources()
+    headlines = get_headlines()
    
     title = 'Home - Welcome to News App '
-    return render_template('index.html',sources=sources)
+    return render_template('index.html',headlines=headlines)
 
 
-@main.route('/articles/<source_id>')
-def articles(source_id):
+@main.route('/articles')
+def articles():
 
-   articles = get_articles(source_id)
+   articles = get_articles()
 
-   return render_template('health.html', articles=articles)
+   return render_template('articles.html', articles=articles)
+
+
+
+
+@main.route('/sources')
+def sources():
+
+   sources = get_sources()
+
+   return render_template('sources.html', sources=sources)
+
+
+
+
 
 
 

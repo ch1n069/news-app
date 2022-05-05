@@ -1,8 +1,8 @@
-{% for source in sources %}
-<p>{{source.id}}</p>
-<p>{{source.name}}</p>
-<p>{{source.country}}</p>
-<p>{{source.description}}</p>
+ {% extends 'base.html' %} {% block content %} {% for headline in headlines %}
+
+<img src="{{headline.urlToImage}}" width="200">
+<p>{{headline.title}}</p>
 
 
-{% endfor %}
+
+{% endfor %} {% endblock %}
