@@ -36,6 +36,7 @@
 * so far there are no known bugs in the application. 
 
 
-
+## license 
+[license](license)
 
 
