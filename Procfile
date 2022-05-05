@@ -1,2 +1,2 @@
-web: gunicorn app:manage
+web: gunicorn manage:app 
 
