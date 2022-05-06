@@ -1,10 +1,27 @@
 {% extends 'base.html' %} {% block content %} {% for article in articles %}
 
 
-<p>{{article.urlToImage}}</p>
-<p>{{article.author}}</p>
-<p>{{article.description}}</p>
-<p>{{article.title}}</p>
-<p>{{article.url}}</p>
-<p>{{article.content}}content</p>
-<img src="{{article.urlToImage}}" alt="" width=200> {% endfor %} {% endblock %}
+
+
+
+
+<div class="colo col-md-4 ">
+    <div class="card">
+        <div class="card-body m-2">
+
+            <a class="image" href=""><img class="image-1" src="{{article.urlToImage}}" width="330"></a>
+            <h4 class="headline">{{article.title}}</h4>
+            <p>{{article.author}}</p>
+            <p>{{article.content}}</p>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+</div>
+
+{% endfor %} {% endblock %}

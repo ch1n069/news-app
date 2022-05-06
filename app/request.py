@@ -106,6 +106,51 @@ def get_headlines():
 
 
 
+
+
+
+def get_top():
+    '''function to display the top sources'''
+    get_top_url = 'https://newsapi.org/v2/everything?q=apple&from=2022-05-04&to=2022-05-04&sortBy=popularity&apiKey=cae08cf647104f67ba2f3b6a8c539dd9'
+    with urllib.request.urlopen(get_top_url) as url:
+        get_top_data = url.read()
+        get_top_response = json.loads(get_top_data)
+
+        headlines_results = None
+
+        if get_top_response['articles']:
+            top_results_list = get_top_response['articles']
+            top_results = process_results_top(top_results_list)
+    return top_results
+
+
+
+def process_results_top(top_list):
+    '''
+        Function that processes the articles list result and transform them to a list of Objects
+    '''
+    top_results = []
+    for top_item in top_list:
+        author = top_item.get('author')
+        title = top_item.get('title')
+
+        description = top_item.get('description')
+        url = top_item.get('url')
+        urlToImage = top_item.get('urlToImage')
+        publishedAt = top_item.get('publishedAt')
+        content = top_item.get('content')
+
+        
+        top_object = Articles(author, title, description, url, urlToImage, publishedAt, content)
+        top_results.append(top_object)
+
+    return top_results
+
+
+
+
+
+
 def process_results_headlines(headlines_list):
     '''
         Function that processes the articles list result and transform them to a list of Objects

@@ -1,19 +1,13 @@
  {% extends 'base.html' %} {% block styles %} {{super()}}
-<link rel="stylesheet" href="{{url_for('static', filename='index.css')}}"> {% endblock %} {% block content %}
-<div class="container">
-    <div class="row">
-
-    </div>
-</div>
-{% for headline in headlines %}
+<link rel="stylesheet" href="{{url_for('static', filename='index.css')}}"> {% endblock %} {% block content %} {% for headline in headlines %}
 
 
 
-<div class="col-md-4">
+<div class="colo col-md-4 ">
     <div class="card">
         <div class="card-body m-2">
 
-            <img class="" src="{{headline.urlToImage}}" width="330">
+            <a class="image" href=""><img class="image-1" src="{{headline.urlToImage}}" width="330"></a>
             <h4 class="headline">{{headline.title}}</h4>
             <p>{{headline.publishedAt}}</p>
 
@@ -30,6 +24,14 @@
 
 {% endfor %}
 
+
+
+
 </div>
 </div>
-{% endblock %}
+
+
+
+
+<h1 class="text-center pt-5 color-white">tech field</h1>
+{% include 'tech.html' %} {% endblock %}
